@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Images from "./components/Images";
 import GenerateImage from "./components/GenerateImage";
