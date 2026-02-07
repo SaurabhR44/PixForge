@@ -6,7 +6,7 @@ import { Maximize2, X, Download, Clock, Copy, Check } from "lucide-react";
 import "./Images.css";
 
 const getBaseUrl = () => {
-  if (window.location.hostname !== 'localhost') return ''; // Vercel handles /api automatically
+  if (process.env.NODE_ENV === 'production') return '/api';
   return 'http://localhost:9000';
 };
 
