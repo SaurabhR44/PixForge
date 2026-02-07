@@ -1,0 +1,9 @@
+node_modules
+generated_images
+db.json
+test*.jpg
+test_api.js
+.env
+frontend/dist
+.DS_Store
+*.log

@@ -1,21 +1,24 @@
 {
-  "name": "backend",
+  "name": "pixforge",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "type": "module",
   "scripts": {
+    "start-backend": "node app.js",
+    "start-frontend": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run start-backend\" \"npm run start-frontend\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cloudinary": "^2.0.2",
+    "axios": "^1.6.7",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
     "express": "^4.18.3",
-    "mongoose": "^8.2.0",
-    "openai": "^4.28.4"
+    "framer-motion": "^12.33.0",
+    "lucide-react": "^0.563.0"
   }
 }

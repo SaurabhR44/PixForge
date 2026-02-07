@@ -1,81 +1,170 @@
-/* GenerateImage.css */
-.container {
+.hero-section {
+  padding: 80px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 99px;
+  color: var(--accent-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
   max-width: 600px;
-  margin: 2rem auto;
-  padding: 1rem;
-  text-align: center;
+  margin-bottom: 40px;
 }
 
-.input-prompt {
+.input-wrapper {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
+  max-width: 700px;
+  display: flex;
+  padding: 8px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
-.generate-btn {
-  padding: 0.75rem 1.5rem;
+.input-wrapper input {
+  flex: 1;
+  background: transparent;
   border: none;
-  border-radius: 4px;
-  background-color: #005f73;
+  padding: 12px 16px;
   color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.generate-btn:hover {
-  background-color: #0a9396;
-}
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.title {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.description {
   font-size: 1.1rem;
-  color: #666;
 }
 
-/* Continue with the rest of your styles */
-
-.generate-btn:disabled {
-  background-color: #94d2bd;
-  cursor: not-allowed;
+.inspiration-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 800px;
 }
 
-.image-container {
-  margin-top: 2rem;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  line-height: 0; /* Eliminate space below image */
+.chip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
-.image-container img {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
+.chip:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: rgba(59, 130, 246, 0.3);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
 }
 
-/* Add responsiveness for smaller devices */
+.action-btn {
+  background: var(--accent-primary);
+  color: white;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.action-btn:hover:not(:disabled) {
+  background: #2563eb;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+.error-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  color: #ef4444;
+  font-size: 0.9rem;
+  margin-top: 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-container {
+  text-align: center;
+}
+
+.premium-loader {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--accent-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+.loading-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  letter-spacing: 0.05em;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spinner 1s linear infinite;
+}
+
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
+  .hero-title {
+    font-size: 2.5rem;
   }
 
-  .input-prompt {
-    font-size: 0.9rem;
-  }
-
-  .generate-btn {
-    font-size: 0.9rem;
+  .hero-subtitle {
+    font-size: 1.1rem;
   }
 }
