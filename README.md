@@ -53,9 +53,5 @@ PixForge is pre-configured for Vercel. Simply:
 2. Import the project into Vercel.
 3. Vercel will auto-detect the `vercel.json` configuration and deploy the full-stack app.
 
-## 📜 License
-
-This project is licensed under the ISC License.
-
 ---
 *Forged with passion by SaurabhR44.*
