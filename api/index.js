@@ -40,8 +40,15 @@ app.post("/api/generate-image", async (req, res) => {
         // We don't save to FS on Vercel. We return the image directly or a base64 string.
         // For the "Gallery" to work, we'll suggest using localStorage for the history on the client.
 
-        res.set('Content-Type', 'image/jpeg');
-        res.send(response.data);
+        const base64Image = Buffer.from(response.data).toString('base64');
+        const dataUrl = `data:image/jpeg;base64,${base64Image}`;
+
+        res.json({
+            prompt,
+            url: dataUrl,
+            public_id: `img-${Date.now()}`,
+            createdAt: new Date()
+        });
 
     } catch (error) {
         console.error(`Vercel API Error: ${error.message}`);

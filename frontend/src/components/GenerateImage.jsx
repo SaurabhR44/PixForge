@@ -11,16 +11,14 @@ const getBaseUrl = () => {
 };
 
 const generateImageAPI = async (prompt) => {
-  const res = await axios.post(`${getBaseUrl()}/generate-image`, { prompt }, {
-    // If we're getting a binary stream from Vercel, handle it accordingly
-    responseType: process.env.NODE_ENV === 'production' ? 'blob' : 'json'
-  });
+  const res = await axios.post(`${getBaseUrl()}/generate-image`, { prompt });
 
-  if (process.env.NODE_ENV === 'production') {
-    const url = URL.createObjectURL(res.data);
-    return { prompt, url, public_id: Date.now().toString() };
-  }
-  return res.data;
+  // Persist to local history immediately
+  const image = res.data;
+  const history = JSON.parse(localStorage.getItem('generation_history') || '[]');
+  localStorage.setItem('generation_history', JSON.stringify([image, ...history]));
+
+  return image;
 };
 
 const GenerateImage = () => {
@@ -85,6 +83,17 @@ const GenerateImage = () => {
         </form>
 
         <AnimatePresence>
+          {mutation.data && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="latest-preview glass-panel"
+            >
+              <img src={mutation.data.url} alt="Latest Forge" />
+              <div className="preview-label">Latest Masterpiece</div>
+            </motion.div>
+          )}
+
           {mutation.isError && (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}

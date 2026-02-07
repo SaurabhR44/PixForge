@@ -159,6 +159,35 @@
   animation: spinner 1s linear infinite;
 }
 
+.latest-preview {
+  margin-top: 40px;
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.latest-preview img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.preview-label {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
